@@ -3,17 +3,24 @@ import Providers from "next-auth/providers";
 
 export default NextAuth({
   providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    }),
-    // Add more providers as needed
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        // Replace this logic with your database check
+        const user = { id: 1, name: "Admin", email: "admin@example.com" }
+        if (user) {
+          return user
+        }
+        return null
+      }
+    })
   ],
-  callbacks: {
-    async session({ session, user }) {
-      session.userId = user.id;
-      return session;
-    },
+  pages: {
+    signIn: '/auth/login'  // Custom login page
   },
-  database: process.env.DATABASE_URL,
-});
+})
+
