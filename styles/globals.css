@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a global font family */
+body {
+  font-family: 'Arial', sans-serif; /* You can choose your preferred font */
+  background-color: #f9f9f9; /* Light gray background color */
+  color: #333; /* Dark text color */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Default link styles */
+a {
+  color: #0070f3; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Add some basic styles for headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* You can add your own global styles here, like a container for layout */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Add utility classes if necessary */
+.hidden {
+  display: none;
+}
